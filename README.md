@@ -24,7 +24,7 @@ This tool patches the embedded version metadata in the 3MF archive to match the 
 
 ## Quick Start (Anywhere)
 
-1. Open `src/index.html` directly in your browser.
+1. Open `index.html` directly in your browser.
 2. Drag a `.3mf` file onto the page.
 3. Click **Fix & Download**.
 
