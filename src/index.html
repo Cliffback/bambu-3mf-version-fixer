@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bambu 3MF Version Fixer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Bambu 3MF Version Fixer</h1>
+        <p class="subtitle">Fix MakerWorld compatibility by downgrading version metadata to the latest official release</p>
+
+        <div class="drop-zone" id="dropZone">
+            <svg class="drop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="17 8 12 3 7 8"/>
+                <line x1="12" y1="3" x2="12" y2="15"/>
+            </svg>
+            <p class="drop-text">Drop your .3mf file here</p>
+            <p class="drop-or">or</p>
+            <button class="btn btn-secondary" id="chooseFileBtn">Choose File</button>
+            <input type="file" id="fileInput" accept=".3mf" hidden>
+        </div>
+
+        <div class="status-area" id="statusArea" style="display: none;">
+            <div class="file-info">
+                <span class="label">File:</span>
+                <span class="value" id="fileName">-</span>
+            </div>
+            <div class="file-info">
+                <span class="label">Detected:</span>
+                <span class="value" id="detectedVersion">-</span>
+            </div>
+            <div class="file-info">
+                <span class="label">Official:</span>
+                <span class="value" id="officialVersion">-</span>
+            </div>
+        </div>
+
+        <div class="override-area" id="overrideArea" style="display: none;">
+            <label for="targetVersion">Target Version Override</label>
+            <input type="text" id="targetVersion" placeholder="02.06.00.51">
+        </div>
+
+        <div class="actions" id="actions" style="display: none;">
+            <button class="btn btn-primary" id="fixBtn" disabled>Fix & Download</button>
+        </div>
+
+        <div class="message" id="message"></div>
+    </div>
+
+    <footer>
+        <a href="https://github.com/bambulab/BambuStudio" target="_blank" rel="noopener">Bambu Studio</a>
+        ·
+        <span>Client-side only | your files never leave your browser</span>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

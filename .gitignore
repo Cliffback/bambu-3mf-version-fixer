@@ -1,0 +1,5 @@
+*.3mf
+*_fixed.3mf
+.DS_Store
+node_modules/
+*.log

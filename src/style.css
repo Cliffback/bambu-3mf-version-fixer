@@ -1,0 +1,239 @@
+:root {
+    --ctp-base: #1e1e2e;
+    --ctp-mantle: #181825;
+    --ctp-crust: #11111b;
+    --ctp-surface0: #313244;
+    --ctp-surface1: #45475a;
+    --ctp-surface2: #585b70;
+    --ctp-text: #cdd6f4;
+    --ctp-subtext0: #a6adc8;
+    --ctp-subtext1: #bac2de;
+    --ctp-green: #a6e3a1;
+    --ctp-red: #f38ba8;
+    --ctp-blue: #89b4fa;
+    --ctp-lavender: #b4befe;
+    --ctp-overlay0: #6c7086;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    background-color: var(--ctp-base);
+    color: var(--ctp-text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    max-width: 480px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: var(--ctp-text);
+}
+
+.subtitle {
+    font-size: 0.875rem;
+    color: var(--ctp-subtext0);
+    margin-bottom: 2rem;
+}
+
+.drop-zone {
+    border: 2px dashed var(--ctp-surface1);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    background-color: var(--ctp-surface0);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+}
+
+.drop-zone:hover,
+.drop-zone.drag-over {
+    border-color: var(--ctp-green);
+    background-color: rgba(166, 227, 161, 0.05);
+}
+
+.drop-icon {
+    width: 48px;
+    height: 48px;
+    color: var(--ctp-subtext0);
+    margin-bottom: 1rem;
+    transition: color 0.2s ease;
+}
+
+.drop-zone:hover .drop-icon,
+.drop-zone.drag-over .drop-icon {
+    color: var(--ctp-green);
+}
+
+.drop-text {
+    font-size: 1rem;
+    color: var(--ctp-subtext1);
+    margin-bottom: 0.5rem;
+}
+
+.drop-or {
+    font-size: 0.8rem;
+    color: var(--ctp-overlay0);
+    margin-bottom: 0.75rem;
+}
+
+.status-area {
+    background-color: var(--ctp-surface0);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.file-info {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.35rem 0;
+    font-size: 0.875rem;
+}
+
+.file-info:not(:last-child) {
+    border-bottom: 1px solid var(--ctp-surface1);
+}
+
+.file-info .label {
+    color: var(--ctp-subtext0);
+}
+
+.file-info .value {
+    color: var(--ctp-text);
+    font-weight: 500;
+    font-family: 'SF Mono', Monaco, monospace;
+    font-size: 0.8rem;
+}
+
+.override-area {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.override-area label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--ctp-subtext0);
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+}
+
+.override-area input {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--ctp-surface1);
+    border-radius: 8px;
+    background-color: var(--ctp-base);
+    color: var(--ctp-text);
+    font-family: 'SF Mono', Monaco, monospace;
+    font-size: 0.85rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.override-area input:focus {
+    border-color: var(--ctp-blue);
+}
+
+.actions {
+    margin-bottom: 1rem;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.65rem 1.5rem;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+.btn-primary {
+    background-color: var(--ctp-green);
+    color: var(--ctp-crust);
+    width: 100%;
+}
+
+.btn-primary:hover:not(:disabled) {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+}
+
+.btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-secondary {
+    background-color: var(--ctp-surface1);
+    color: var(--ctp-text);
+}
+
+.btn-secondary:hover {
+    background-color: var(--ctp-surface2);
+}
+
+.message {
+    min-height: 1.5rem;
+    font-size: 0.85rem;
+    color: var(--ctp-subtext0);
+}
+
+.message.error {
+    color: var(--ctp-red);
+}
+
+.message.success {
+    color: var(--ctp-green);
+}
+
+footer {
+    margin-top: auto;
+    padding-top: 2rem;
+    font-size: 0.75rem;
+    color: var(--ctp-overlay0);
+    text-align: center;
+}
+
+footer a {
+    color: var(--ctp-blue);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 520px) {
+    body {
+        padding: 1rem;
+    }
+    .drop-zone {
+        padding: 2rem 1.5rem;
+    }
+}
