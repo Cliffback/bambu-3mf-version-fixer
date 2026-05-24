@@ -1,5 +1,7 @@
 # Bambu 3MF Version Fixer
 
+**[Live Web App →](https://cliffback.github.io/bambu-3mf-version-fixer/)**
+
 A minimal, client-side web tool to fix Bambu Studio `.3mf` files for MakerWorld compatibility.
 
 When Bambu Studio beta versions save `.3mf` files, MakerWorld rejects them with:
@@ -22,8 +24,14 @@ This tool patches the embedded version metadata in the 3MF archive to match the 
 
 ---
 
-## Quick Start (Anywhere)
+## Quick Start
 
+**Option 1 — Use the live web app (recommended):**
+1. Go to **[https://cliffback.github.io/bambu-3mf-version-fixer/](https://cliffback.github.io/bambu-3mf-version-fixer/)**
+2. Drag a `.3mf` file onto the page.
+3. Click **Fix & Download**.
+
+**Option 2 — Run locally:**
 1. Open `index.html` directly in your browser.
 2. Drag a `.3mf` file onto the page.
 3. Click **Fix & Download**.
