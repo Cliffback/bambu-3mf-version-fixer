@@ -13,6 +13,12 @@ This tool patches the embedded version metadata in the 3MF archive to match the 
 
 ---
 
+## Disclaimer
+
+This tool is provided as-is for educational and convenience purposes. By using this tool, you acknowledge that **you are solely responsible** for any modifications made to your 3MF files, and for any consequences resulting from uploading modified files to MakerWorld or any other platform. The author assumes **no liability** for failed prints, account issues, rejected uploads, or any other outcome. Always verify your files before printing or publishing.
+
+---
+
 ## Features
 
 - Drag & drop or native file picker
@@ -40,57 +46,15 @@ This tool patches the embedded version metadata in the 3MF archive to match the 
 
 ---
 
-## Synology Deployment (Docker + Task Scheduler)
+## Self-Hosting (Docker)
 
-### 1. Clone or copy this repo to your Synology
+A `Dockerfile` and `docker-compose.yml` are included for self-hosting. To deploy:
 
-Place it somewhere persistent, e.g.:
 ```bash
-/volume1/docker/bambu-3mf-version-fixer/
-```
-
-### 2. Run the deploy script
-
-SSH into your Synology as admin, then:
-```bash
-cd /volume1/docker/bambu-3mf-version-fixer
 bash deploy.sh
 ```
 
-This will:
-- Stop & remove any existing container
-- Build a fresh Docker image
-- Start the container on port **8765**
-
-### 3. (Optional) Set up Task Scheduler for one-click redeploy
-
-1. Open **DSM** → **Control Panel** → **Task Scheduler**
-2. Click **Create** → **Triggered Task** → **User-defined script**
-3. General settings:
-   - **Task:** `Bambu 3MF Fixer Deploy`
-   - **User:** `root`
-4. Task Settings → Run command:
-   ```bash
-   cd /volume1/docker/bambu-3mf-version-fixer && bash deploy.sh
-   ```
-5. Click **OK**, then **Run** whenever you want to redeploy (e.g., after pulling updates).
-
-### 4. Access the app
-
-```
-http://<your-synology-ip>:8765
-```
-
----
-
-## Docker Compose (Alternative)
-
-If you prefer `docker-compose`:
-
-```bash
-cd /volume1/docker/bambu-3mf-version-fixer
-docker-compose up -d --build
-```
+This builds an `nginx:alpine` image and serves the app on port **8765**.
 
 ---
 
